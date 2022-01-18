@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css">
-  <title>Document</title>
+  <title>By_ananya_sharma</title>
 </head>
 <body>
 
@@ -13,37 +13,24 @@
     <h1><a href="https://github.com/ananyahere" target="_blank">@ananyahere</a></h1>
   </section>
 
-  <section class="one">
-    <h1>User Info.</h1>
+  <section class="one" id="one">
+    <div class="btn-container">
+      <button class="fetchUserBtn">Get Users</button>
+      <button class="fetchImgBtn">Get Images</button>
+    </div>
   </section>
 
   <!-- User Slider Start  -->
   <section class="two">
     <div class="container">
       <div class="userCard-container">
-        <div class="card card-active" id="card1">
-          <h2 class="profile-name">Leanne Graham</h2>
-          <p class="profile-position">Bret</p>
-          <p class="profile-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+        <div class="card card-active" >
+          <h1>NO USER FOUND. PLEASE FETCH USERS.</h1>
+          <p><a href="./index.html#one">click here</a></p>
         </div>
-        <div class="card" id="card2">
-          <h2 class="profile-name">Ervin Howell</h2>
-          <p class="profile-position">Bret</p>
-          <p class="profile-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-        </div>
-        <div class="card" id="card3">
-          <h2 class="profile-name">Clementine Bauch</h2>
-          <p class="profile-position">Bret</p>
-          <p class="profile-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-        </div>
-        <div class="card" id="card4">
-          <h2 class="profile-name">Patricia Lebsack</h2>
-          <p class="profile-position">Bret</p>
-          <p class="profile-body">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-        </div>
-      </div>
-      <button type="button" id="prev-user"> &lt; </button>
-      <button type="button" id="next-user"> &gt; </button>
+       </div>
+       <button type="button" id="prev-user"> &lt; </button>
+       <button type="button" id="next-user"> &gt; </button>
     </div>
   </section>
   <!-- User Slider End -->
@@ -52,9 +39,10 @@
   <section class="three">
     <div class="container">
       <div class="image-container">
-        <img src="https://via.placeholder.com/600/771796" id="content1" class="img-active">
-        <img src="https://via.placeholder.com/600/24f355" id="content2" >
-        <img src="https://via.placeholder.com/600/f66b97" id="content3" >
+        <div class="noImg-card img-active">
+          <h1>NO IMAGE FOUND. PLEASE FETCH IMAGES.</h1>
+          <p><a href="./index.html#one">click here</a></p>
+        </div>
       </div>
       <button type="button" id="prev-img"> &lt; </button>
       <button type="button" id="next-img"> &gt; </button>

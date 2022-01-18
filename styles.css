@@ -19,10 +19,19 @@ a{
   text-decoration: none;
   color: var(--var--color--two);
 }
+ul{
+  list-style: none;
+}
 
 section {
   height: 100vh;
 }
+
+button{
+  outline: none;
+  cursor: pointer;
+}
+
 
 .hero-section{
   color: var(--var--color--two);
@@ -42,17 +51,38 @@ section {
 .one {
   background-color: var(--var--color--two);
   color: var(--var--color--one);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.one h1{
-  text-align: left;
-  font-size: 4rem;
-  letter-spacing: 4px;
-  margin-top: 0;
-  padding-top: 50px;
-  padding-left: 50px;
-  text-transform: uppercase;
+.one .btn-container{
+  width: 100%;
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
 }
+
+.fetchUserBtn, .fetchImgBtn{
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 15px;
+  font-size: 24px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background-color: var(--var--color--one);
+  transition: all 0.5s ease-in-out;
+  font-family: monospace;
+}
+
+.fetchUserBtn:hover, .fetchImgBtn:hover{
+  background-color: var(--var--color--two);
+  color: var(--var--color--one);
+}
+
 
 .two {
   background-color: var(--var--color--one);
@@ -79,7 +109,11 @@ section {
   border-radius: 5px;
   box-shadow: 0 15px 30px rbga(0,0,0,0.3);
   position: relative;
-  border: 2px solid blue;
+}
+
+.two .container{
+  height: 55%;
+  width: 45%;
 }
 
 .three .container{
@@ -94,7 +128,26 @@ section {
   position: relative;
   width: 100%;
   height: 100%;
-  border: 1px solid white;
+  /* border: 1px solid white; */
+}
+
+.noImg-card{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--var--color--two);
+  text-align: center;
+}
+.noImg-card h1{
+  font-family: monospace;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-transform: uppercase;
+}
+.noImg-card p a{
+  font-family: monospace;
+  text-transform: capitalize;
+  color: var(--var--color--one);
 }
 
 img{
@@ -108,10 +161,6 @@ img{
   display: block;
 }
 
-button{
-  outline: none;
-  cursor: pointer;
-}
 
 #prev-img, #next-img, #prev-user, #next-user{
   height: 40px;
@@ -158,7 +207,7 @@ button{
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   width: 100%;
   height: 100%;
-  max-width: 700px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -166,6 +215,14 @@ button{
   line-height: 1.6;
   overflow-y: scroll;
   display: none;
+}
+
+.card h1, .card p a{
+  font-family: monospace;
+}
+
+.card::-webkit-scrollbar{
+  width: 0;
 }
 
 .card-active{
@@ -195,10 +252,53 @@ button{
   text-transform: uppercase;
   font-size: 0.875rem;
   letter-spacing: 3px;
+  margin-bottom: 4rem;
+}
+
+.profile-body{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.list-1, .list-2{
+  width: 50%;
+  height: 100%;
+}
+.list-2 li, .list-1 li{
+  padding: 2px;
+}
+
+.list-1 li, .list-2 li{
+  font-family: serif;
+}
+
+.list-1 li span, .list-2 li span{
+  font-weight: bolder;
+  font-family: monospace;
+  text-transform: uppercase;
 }
 
 @media only screen and (max-width: 768px) {
   .hero-section h1{
     font-size: 3rem;
+  }
+  .profile-body{
+    flex-direction: column;
+  }
+  .list-1{
+    height: 50%;
+    width: 100%;
+  }
+  .list-2{
+    height: 50%;
+    width: 100%;
+  }
+  .one .btn-container{
+    gap: 2rem;
+  }
+  .fetchUserBtn, .fetchImgBtn{
+    padding: 1rem;
+    font-size: 20px;
   }
 }
