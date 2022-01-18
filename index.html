@@ -27,11 +27,13 @@
         <div class="card card-active" >
           <h1>NO USER FOUND. PLEASE FETCH USERS.</h1>
           <p><a href="./index.html#one">click here</a></p>
+          <p class="error user_error"></p>
         </div>
        </div>
        <button type="button" id="prev-user"> &lt; </button>
        <button type="button" id="next-user"> &gt; </button>
     </div>
+    <button id="random_user">Random user</button>
   </section>
   <!-- User Slider End -->
 
@@ -42,17 +44,16 @@
         <div class="noImg-card img-active">
           <h1>NO IMAGE FOUND. PLEASE FETCH IMAGES.</h1>
           <p><a href="./index.html#one">click here</a></p>
+          <p class="error img_error"></p>
         </div>
       </div>
       <button type="button" id="prev-img"> &lt; </button>
       <button type="button" id="next-img"> &gt; </button>
     </div>
+    <button id="random_image">Random Image</button>
   </section>
 <!-- Image Slider End -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/TextPlugin.min.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

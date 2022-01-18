@@ -63,7 +63,7 @@ button{
   justify-content: center;
 }
 
-.fetchUserBtn, .fetchImgBtn{
+.fetchUserBtn, .fetchImgBtn, #random_image, #random_user{
   padding-left: 3rem;
   padding-right: 3rem;
   padding-top: 1rem;
@@ -83,6 +83,16 @@ button{
   color: var(--var--color--one);
 }
 
+#random_user{
+  background-color: var(--var--color--one);
+  color: var(--var--color--two);
+
+}
+#random_image, #random_user{
+  margin-top: 20px;
+}
+
+
 
 .two {
   background-color: var(--var--color--one);
@@ -90,6 +100,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .three {
@@ -98,6 +109,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .container{
@@ -144,10 +156,11 @@ button{
   padding-bottom: 25px;
   text-transform: uppercase;
 }
-.noImg-card p a{
+.noImg-card p a, .noImg-card p{
   font-family: monospace;
   text-transform: capitalize;
   color: var(--var--color--one);
+  padding-top: 25px;
 }
 
 img{
@@ -217,7 +230,7 @@ img{
   display: none;
 }
 
-.card h1, .card p a{
+.card h1, .card p a, .card p{
   font-family: monospace;
 }
 
@@ -279,6 +292,7 @@ img{
   text-transform: uppercase;
 }
 
+
 @media only screen and (max-width: 768px) {
   .hero-section h1{
     font-size: 3rem;
@@ -301,4 +315,9 @@ img{
     padding: 1rem;
     font-size: 20px;
   }
+}
+
+.error{
+  color: red;
+  font-weight: bolder;
 }

@@ -1,20 +1,13 @@
-gsap.registerPlugin(ScrollTrigger);
-gsap.utils.toArray('.section').forEach(section => {
-  ScrollTrigger.create({
-    trigger: section,
-    start: 'top top',
-    pin: true,
-    pinSpacing: false
-  });
-});
-
-// Sliding Functionality!
-
+// Global Variable
 let i_img=0;
 let j_img=3;
 let i_card=0;
 let j_card=4;
+// if -1, no user/img loaded yet.
+let activeImgId=-1;
+let activeUserId=-1;
 
+// DOM Variables
 const nextBtnImg = document.querySelector('#next-img')
 const prevBtnImg = document.querySelector('#prev-img')
 const nextBtnCard = document.querySelector('#next-user')
@@ -23,31 +16,39 @@ const fetchUserBtn = document.querySelector('.fetchUserBtn')
 const fetchImgBtn = document.querySelector('.fetchImgBtn')
 let userCardContainer = document.querySelector('.userCard-container')
 let imageContainer = document.querySelector('.image-container')
+const randomImgBtn = document.querySelector('#random_image')
+const randomUserBtn = document.querySelector('#random_user')
+let errorUserPara = document.querySelector('.user_error')
+let errorImgPara = document.querySelector('.img_error')
 
 // functions
 const nextImg = () => {
   document.getElementById(`content${i_img+1}`).classList.remove("img-active")
   i_img = (j_img+i_img+1) % j_img
   document.getElementById(`content${i_img+1}`).classList.add("img-active")
+  activeImgId = i_img+1
 }
 
 const prevImg = () => {
   console.log('prev')
   document.getElementById(`content${i_img+1}`).classList.remove("img-active")
-  i_img=(j_img+i_img-1)%j_img;
+  i_img=(j_img+i_img-1)%j_img
   document.getElementById(`content${i_img+1}`).classList.add("img-active")
+  activeImgId = i_img+1
 }
 
 const nextCard = () => {
   document.getElementById(`card${i_card+1}`).classList.remove("card-active")
   i_card = (j_card+i_card+1) % j_card
   document.getElementById(`card${i_card+1}`).classList.add("card-active")
+  activeUserId = i_card+1
 }
 
 const prevCard = () => {
   document.getElementById(`card${i_card+1}`).classList.remove("card-active")
   i_card = (j_card+i_card-1) % j_card;
   document.getElementById(`card${i_card+1}`).classList.add("card-active")
+  activeUserId = i_card+1
 }
 
 const getUsers = async () => {
@@ -55,7 +56,6 @@ const getUsers = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await response.json()
     j_card = data.length
-    console.log(data)
     formatUserData(data)
   }catch(e){
     console.log(e)
@@ -107,7 +107,7 @@ const formatUserData = (data) => {
   output = output + singleUser
   })
   userCardContainer.innerHTML=output
-  console.log(output)
+  activeUserId=1
 }
 
 const formateImageData = (data) => {
@@ -125,13 +125,48 @@ const formateImageData = (data) => {
     output=output+singleImg
   })
   imageContainer.innerHTML=output
+  activeImgId=1
 }
 
+const getRandomImg = () => {
+  if(activeImgId === -1){
+    // Error Handling
+    console.log('error in img')
+    errorImgPara.innerHTML = `PLEASE FETCH THE IMAGES FIRST`
+    setTimeout(() => {
+      errorImgPara.innerHTML = ``
+    }, 5000)    
+    return
+  }
+  document.getElementById(`content${activeImgId}`).classList.remove("img-active")
+  randomImgId=Math.floor(Math.random() * j_img)
+  console.log(randomImgId)
+  document.getElementById(`content${randomImgId}`).classList.add("img-active")
+  activeImgId = randomImgId
+}
 
-// event listeners
+const getRandomUser = () => {
+  if(activeUserId === -1){
+    // Error Handling
+    errorUserPara.innerHTML = `PLEASE FETCH THE USERS FIRST`
+    setTimeout(() => {
+      errorUserPara.innerHTML = ``
+    }, 5000)
+    return
+  }
+  document.getElementById(`card${activeUserId}`).classList.remove("card-active")
+  randomUserId=Math.floor(Math.random() * j_card)
+  console.log(randomUserId)
+  document.getElementById(`card${randomUserId}`).classList.add("card-active")
+  activeUserId = randomUserId
+}
+
+// Event Listeners
 nextBtnImg.addEventListener('click', nextImg)
 prevBtnImg.addEventListener('click', prevImg)
 nextBtnCard.addEventListener('click', nextCard)
 prevBtnCard.addEventListener('click', prevCard)
 fetchUserBtn.addEventListener('click', getUsers)
 fetchImgBtn.addEventListener('click', getImages)
+randomImgBtn.addEventListener('click', getRandomImg)
+randomUserBtn.addEventListener('click', getRandomUser)
